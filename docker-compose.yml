@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  dynamo-sqs-clean-arch:
+    container_name: dynamo-sqs-clean-arch
+    env_file: .env
+    build:
+      context: .
+      target: base
+    volumes:
+      - ./src:/home/node/app/src
+    expose:
+      - '${PORT}'
+    ports:
+      - '${PORT}:${PORT}'
+    command: yarn start:dev
