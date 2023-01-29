@@ -6,7 +6,10 @@
   "scripts": {
     "start": "npm run build && node dist/main.js",
     "start:dev": "npx nodemon",
-    "build": "rimraf ./dist && tsc"
+    "build": "rimraf ./dist && tsc",
+    "prettier:format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +20,13 @@
     "@types/node": "^18.11.18",
     "@types/node-cron": "^3.0.7",
     "@types/uuid": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "nodemon": "^2.0.20",
+    "prettier": "^2.8.3",
     "rimraf": "^4.1.2",
     "ts-node": "^10.9.1",
     "tsx": "^3.12.2",

@@ -1,7 +1,7 @@
-import { inject, injectable } from "inversify";
-import { IdGenerator } from "../../../core/hash-lib";
-import { ProductRepository } from "../interfaces/product-repository.interface";
-import { Product } from "../interfaces/product.interface";
+import { inject, injectable } from 'inversify';
+import { IdGenerator } from '../../../core/hash-lib';
+import { ProductRepository } from '../interfaces/product-repository.interface';
+import { Product } from '../interfaces/product.interface';
 
 @injectable()
 export class CreateProductUseCase {
@@ -18,7 +18,7 @@ export class CreateProductUseCase {
     return await this.productRepository.create({
       ...product,
       id: uuid,
-      quantity: 0,
+      quantity: 0
     });
   }
 }

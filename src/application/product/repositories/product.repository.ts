@@ -3,16 +3,16 @@ import {
   DynamoDBClient,
   PutItemCommand,
   ScanCommand,
-  UpdateItemCommand,
-} from "@aws-sdk/client-dynamodb";
-import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
-import { inject, injectable } from "inversify";
-import { PRODUCT_TABLE_NAME } from "../../../infra/constants";
+  UpdateItemCommand
+} from '@aws-sdk/client-dynamodb';
+import { marshall, unmarshall } from '@aws-sdk/util-dynamodb';
+import { inject, injectable } from 'inversify';
+import { PRODUCT_TABLE_NAME } from '../../../infra/constants';
 import {
   ProductRepository,
-  UpdateQuantityResult,
-} from "../interfaces/product-repository.interface";
-import { Product } from "../interfaces/product.interface";
+  UpdateQuantityResult
+} from '../interfaces/product-repository.interface';
+import { Product } from '../interfaces/product.interface';
 
 @injectable()
 export class ProductRepositoryImpl implements ProductRepository {
@@ -25,7 +25,7 @@ export class ProductRepositoryImpl implements ProductRepository {
 
     const command = new PutItemCommand({
       TableName: PRODUCT_TABLE_NAME,
-      Item,
+      Item
     });
 
     await this.dynamoClient.send(command);
@@ -34,7 +34,7 @@ export class ProductRepositoryImpl implements ProductRepository {
 
   async findMany(): Promise<Product[]> {
     const command = new ScanCommand({
-      TableName: PRODUCT_TABLE_NAME,
+      TableName: PRODUCT_TABLE_NAME
     });
 
     const { Items } = await this.dynamoClient.send(command);
@@ -49,10 +49,10 @@ export class ProductRepositoryImpl implements ProductRepository {
       TableName: PRODUCT_TABLE_NAME,
       Key: marshall({ id: product.id }),
       AttributeUpdates: {
-        name: { Action: "PUT", Value: { S: product?.name } },
-        description: { Action: "PUT", Value: { S: product?.description } },
-        price: { Action: "PUT", Value: { N: product?.price?.toString() } },
-      },
+        name: { Action: 'PUT', Value: { S: product?.name } },
+        description: { Action: 'PUT', Value: { S: product?.description } },
+        price: { Action: 'PUT', Value: { N: product?.price?.toString() } }
+      }
     });
 
     await this.dynamoClient.send(command);
@@ -61,31 +61,31 @@ export class ProductRepositoryImpl implements ProductRepository {
   }
 
   async updateQuantity(
-    product: Pick<Product, "id" | "quantity">
+    product: Pick<Product, 'id' | 'quantity'>
   ): Promise<UpdateQuantityResult> {
     const command = new UpdateItemCommand({
       TableName: PRODUCT_TABLE_NAME,
       Key: marshall({ id: product.id }),
       AttributeUpdates: {
         quantity: {
-          Action: "PUT",
-          Value: { N: product?.quantity?.toString() },
-        },
-      },
+          Action: 'PUT',
+          Value: { N: product?.quantity?.toString() }
+        }
+      }
     });
 
     await this.dynamoClient.send(command);
 
     return {
       id: product.id,
-      quantity: product.quantity,
+      quantity: product.quantity
     };
   }
 
   async delete(id: string): Promise<void> {
     const command = new DeleteItemCommand({
       TableName: PRODUCT_TABLE_NAME,
-      Key: marshall({ id }),
+      Key: marshall({ id })
     });
 
     await this.dynamoClient.send(command);

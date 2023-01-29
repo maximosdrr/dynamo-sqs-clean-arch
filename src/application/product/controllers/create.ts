@@ -1,11 +1,11 @@
-import { inject, injectable } from "inversify";
+import { inject, injectable } from 'inversify';
 import {
   HandlerInput,
   HandlerOutput,
-  Controller,
-} from "../../../core/controller";
-import { Product } from "../interfaces/product.interface";
-import { CreateProductUseCase } from "../use-cases/create";
+  Controller
+} from '../../../core/controller';
+import { Product } from '../interfaces/product.interface';
+import { CreateProductUseCase } from '../use-cases/create';
 
 @injectable()
 export class CreateProductController implements Controller {
@@ -22,9 +22,9 @@ export class CreateProductController implements Controller {
     return {
       status: 200,
       data: {
-        message: "Product created successfully",
-        product,
-      },
+        message: 'Product created successfully',
+        product
+      }
     };
   }
 }

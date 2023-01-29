@@ -1,6 +1,6 @@
-import { inject, injectable } from "inversify";
-import { ProductRepository } from "../interfaces/product-repository.interface";
-import { Product } from "../interfaces/product.interface";
+import { inject, injectable } from 'inversify';
+import { ProductRepository } from '../interfaces/product-repository.interface';
+import { Product } from '../interfaces/product.interface';
 
 @injectable()
 export class FindManyProductUseCase {

@@ -1,7 +1,7 @@
-import { SQSClient } from "@aws-sdk/client-sqs";
-import { ProductQueue } from "../message-brokers/sqs/queues/product";
-import { Sqs } from "../message-brokers/sqs/sqs";
-import { DI } from "./container";
+import { SQSClient } from '@aws-sdk/client-sqs';
+import { ProductQueue } from '../message-brokers/sqs/queues/product';
+import { Sqs } from '../message-brokers/sqs/sqs';
+import { DI } from './container';
 
 export async function RegisterMessageBrokers() {
   const container = DI.getInstance().container;

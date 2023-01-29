@@ -1,10 +1,10 @@
-import { inject, injectable } from "inversify";
+import { inject, injectable } from 'inversify';
 import {
   Controller,
   HandlerInput,
-  HandlerOutput,
-} from "../../../core/controller";
-import { FindManyProductUseCase } from "../use-cases/find-many";
+  HandlerOutput
+} from '../../../core/controller';
+import { FindManyProductUseCase } from '../use-cases/find-many';
 
 @injectable()
 export class FindManyProductUseController implements Controller {
@@ -19,8 +19,8 @@ export class FindManyProductUseController implements Controller {
     return {
       status: 200,
       data: {
-        products,
-      },
+        products
+      }
     };
   }
 }

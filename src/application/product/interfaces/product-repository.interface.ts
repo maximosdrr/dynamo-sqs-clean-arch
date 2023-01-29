@@ -1,4 +1,4 @@
-import { Product } from "./product.interface";
+import { Product } from './product.interface';
 
 export interface UpdateQuantityResult {
   id: string;
@@ -10,7 +10,7 @@ export abstract class ProductRepository {
   abstract findMany(): Promise<Product[]>;
   abstract update(product: Product): Promise<Product>;
   abstract updateQuantity(
-    product: Pick<Product, "id" | "quantity">
+    product: Pick<Product, 'id' | 'quantity'>
   ): Promise<UpdateQuantityResult>;
   abstract delete(id: string): Promise<void>;
 }

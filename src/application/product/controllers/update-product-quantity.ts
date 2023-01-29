@@ -1,10 +1,10 @@
-import { inject, injectable } from "inversify";
+import { inject, injectable } from 'inversify';
 import {
   Controller,
   HandlerInput,
-  HandlerOutput,
-} from "../../../core/controller";
-import { UpdateQuantityProductUseCase } from "../use-cases/update-quatity";
+  HandlerOutput
+} from '../../../core/controller';
+import { UpdateQuantityProductUseCase } from '../use-cases/update-quatity';
 
 @injectable()
 export class UpdateProductQuantityController implements Controller {
@@ -17,7 +17,7 @@ export class UpdateProductQuantityController implements Controller {
     const body = input?.body as { id: string; quantity: number };
     await this.updateProductQuantity.execute({
       id: body.id,
-      quantity: body.quantity,
+      quantity: body.quantity
     });
 
     return {
@@ -25,8 +25,8 @@ export class UpdateProductQuantityController implements Controller {
       data: {
         updated: true,
         id: body.id,
-        quantity: body.quantity,
-      },
+        quantity: body.quantity
+      }
     };
   }
 }

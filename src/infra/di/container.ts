@@ -1,9 +1,9 @@
-import { Container } from "inversify";
-import { RegisterControllers } from "./controllers";
-import { RegisterDatabase } from "./databases";
-import { RegisterMessageBrokers } from "./message-brokers";
-import { RegisterRepositories } from "./repositories";
-import { RegisterUseCases } from "./use-cases";
+import { Container } from 'inversify';
+import { RegisterControllers } from './controllers';
+import { RegisterDatabase } from './databases';
+import { RegisterMessageBrokers } from './message-brokers';
+import { RegisterRepositories } from './repositories';
+import { RegisterUseCases } from './use-cases';
 
 export const container = new Container();
 

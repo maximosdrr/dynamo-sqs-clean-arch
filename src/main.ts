@@ -1,9 +1,9 @@
-import "reflect-metadata";
-import { config as setupEnv } from "dotenv";
+import 'reflect-metadata';
+import { config as setupEnv } from 'dotenv';
 
-import { DI } from "./infra/di/container";
-import { ExpressServer } from "./infra/http/express/server";
-import { Sqs } from "./infra/message-brokers/sqs/sqs";
+import { DI } from './infra/di/container';
+import { ExpressServer } from './infra/http/express/server';
+import { Sqs } from './infra/message-brokers/sqs/sqs';
 
 export async function main() {
   setupEnv();

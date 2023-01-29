@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-import { Controller } from "../../../core/controller";
+import { Request, Response } from 'express';
+import { Controller } from '../../../core/controller';
 
 export class ExpressAdapter {
   static async adapt(req: Request, res: Response, controller: Controller) {
@@ -7,7 +7,7 @@ export class ExpressAdapter {
       body: req.body,
       headers: req.headers as Record<string, any>,
       params: req.params,
-      query: req.query as Record<string, any>,
+      query: req.query as Record<string, any>
     });
 
     return res.status(controllerResult.status).send(controllerResult.data);

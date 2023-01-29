@@ -1,5 +1,5 @@
-import express from "express";
-import { ProductRouter } from "./product";
+import express from 'express';
+import { ProductRouter } from './product';
 
 export class ExpressRouter {
   router: express.Router;

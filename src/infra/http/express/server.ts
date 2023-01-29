@@ -1,5 +1,5 @@
-import express from "express";
-import { ExpressRouter } from "./routes/router";
+import express from 'express';
+import { ExpressRouter } from './routes/router';
 
 export class ExpressServer {
   private app: express.Application;
@@ -14,7 +14,7 @@ export class ExpressServer {
 
   run() {
     this.app.listen(3000, () => {
-      console.log("Server running on port 3000");
+      console.log('Server running on port 3000');
     });
   }
 }

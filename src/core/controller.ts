@@ -1,5 +1,3 @@
-import { Request, Response } from "express";
-
 export interface HandlerInput {
   headers?: Record<string, string>;
   body?: Record<string, any>;
